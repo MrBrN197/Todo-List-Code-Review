@@ -1,0 +1,181 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: whitesmoke;
+}
+
+a,
+button,
+input {
+  font-family: inherit;
+}
+
+input {
+  outline: none;
+  border: none;
+  font-size: 1rem;
+}
+
+.todo-container {
+  margin: 0 auto;
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(218, 218, 218);
+  gap: 1px;
+  box-shadow: 0 2.5px 6px rgba(0, 0, 0, 0.2);
+  margin-top: 200px;
+  border-radius: 0.9rem;
+  overflow: hidden;
+}
+
+.todo-container input {
+  background-color: transparent;
+}
+
+.todo-container .icon {
+  padding: 0.4em;
+  cursor: pointer;
+  color: rgb(177, 177, 177);
+}
+
+.todo-container .icon.move {
+  cursor: move;
+}
+
+.todo-container .icon:hover {
+  color: rgb(85, 85, 85);
+}
+
+.todo-container .title {
+  display: flex;
+  padding: 1rem 0;
+  padding-left: 1rem;
+  background-color: white;
+  align-items: center;
+}
+
+#refresh-todo-icon {
+  padding: 0.4em;
+  color: gray;
+  opacity: 0;
+  transition: opacity 120ms;
+  animation: refresh-rotation 1s infinite linear;
+}
+
+#refresh-todo-icon.active {
+  opacity: 1;
+}
+
+#refresh-todo-icon i {
+  vertical-align: middle;
+}
+
+@keyframes refresh-rotation {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.todo-container .title p {
+  flex-grow: 1;
+  font-weight: 600;
+  color: gray;
+}
+
+.add-todo {
+  background-color: white;
+  display: flex;
+  flex-grow: 0;
+  padding: 1em 0;
+  padding-left: 1rem;
+}
+
+.add-todo input {
+  flex-grow: 1;
+  font-style: italic;
+}
+
+.todo-container .add-todo .icon {
+  font-size: 0.5rem;
+  padding-right: 0.8rem;
+}
+
+.todo-items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  position: relative;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 3rem;
+  background-color: white;
+  padding-left: 1rem;
+}
+
+.todo-item.selected {
+  visibility: hidden;
+}
+
+.todo-item.highlight {
+  background-color: #f4f5cc;
+}
+
+.todo-item .input-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  height: 100%;
+  position: relative;
+}
+
+.todo-item .input-box input {
+  height: 100%;
+  flex-grow: 1;
+}
+
+.todo-item .input-box input.checked {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.clear-completed-container {
+  background-color: whitesmoke;
+}
+
+.todo-item .input-box .delete {
+  position: absolute;
+  display: none;
+  right: 0;
+}
+
+.todo-item .input-box:focus-within .delete {
+  display: block;
+}
+
+.todo-item .input-box .delete:hover {
+  color: crimson;
+}
+
+.clear-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 0 auto;
+  display: block;
+  padding: 0.8em;
+}
+
+.clear-btn:hover {
+  text-decoration: underline;
+}
